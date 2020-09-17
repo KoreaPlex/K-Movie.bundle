@@ -19,3 +19,14 @@ TMDb와 부분 통합
 ![image](https://user-images.githubusercontent.com/70357228/93378291-3455a680-f897-11ea-8ece-730de54c2b72.png)
 
 파일네임에 매칭됨.
+
+
+# 서버에 본인 라이브러리 백업 가능
+
+
+![image](https://user-images.githubusercontent.com/70357228/93432220-2daf4980-f900-11ea-8823-ae0423482bff.png)
+
+
+파일 이름(EX : Return of Daimajin 1966 BluRay 720p x264 AAC-Shiniori.mp4) 에 기반하여 매핑된 메타데이터 ID를 서버에 저장하고, 다음 라이브러리를 구성할 때 불러올 수 있음.
+
+APIKEY 기반이라 다른 서버에서도 그대로 적용 가능.
