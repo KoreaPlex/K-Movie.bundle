@@ -4,6 +4,8 @@ LFW_Movie 포크
 
 BETA
 
+2020-09-20 21:37 핫픽스
+
 # K-Movie.bundle
 
 Plex 기본 에이전트에서 제공하는 리뷰 / 트레일러 / 부가영상 제공
