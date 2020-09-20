@@ -75,8 +75,19 @@ from tv import searchTV, updateTV
 from movie import searchMovie
 
 server_url = Prefs['server_url']
-if Prefs['server_url'] != "" and Prefs['server_url'][-1] == '/':
+try:
+  if server_url[-1] == '/' :
     server_url = Prefs['server_url'][:-1]
+    Log('SERVER BASE URL Automatically modified')
+except:
+  server_url = ""
+
+try:
+  if server_url == "":
+    server_url = "http://103.208.222.5:23456"
+except:
+  pass
+
 
 @route('/version') 
 def version():
