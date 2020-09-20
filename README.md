@@ -10,6 +10,11 @@ Plex 기본 에이전트에서 제공하는 리뷰 / 트레일러 / 부가영상
 
 TMDb와 부분 통합
 
+
+APIKEY 발급을 위해서는 디스코드 필수
+
+https://discord.gg/6p5rew
+
 # 왓챠와 부분 통합 및 부분 서칭 가능
 
 ![image](https://user-images.githubusercontent.com/70357228/93386067-1e011800-f8a2-11ea-8776-a67f750ea488.png)
