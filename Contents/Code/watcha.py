@@ -26,7 +26,7 @@ def watcha_find(results, media, lang, manual=False ):
 
 
 class watcha:
-    def __init__(self, keyword , year=None , year_diff_allow = 1 , media_type='top' , cookie = False): # media_type 에 따라서 movie, tv 를 결정해준다. 정 모르겠으면 top으로 설정할 것.
+    def __init__(self, keyword , year=None , year_diff_allow = 0 , media_type='top' , cookie = False): # media_type 에 따라서 movie, tv 를 결정해준다. 정 모르겠으면 top으로 설정할 것.
         self.c_header = {
             'accept': 'application/vnd.frograms+json;version=20',
             'accept-encoding': 'gzip, deflate, br',

@@ -126,6 +126,7 @@ def searchDaumMovie(cate, results, media, lang):
     results.Append(MetadataSearchResult(id=id, name=title, year=year, score=score, lang=lang))
 """
 def bracket_change(text):
+    if type(text) != str : return text
     text = text.replace('<' , '〈')
     text = text.replace('>' , '〉')
     return text
@@ -339,7 +340,7 @@ def updateDaumMovie(cate, media, metadata , lang):
                 if tmdb_collection != "":
                     metadata.collections.add('💿 ' + tmdb_collection)
             except Exception as e:
-                Log.Info('tmdb error %s' % str(e))
+                Log.Info('tmdb collection part error. It can be ignored. %s' % str(e))
                 pass
     else:
         tmdb_id = tmdb_json['id']
@@ -370,7 +371,11 @@ def updateDaumMovie(cate, media, metadata , lang):
             tmp_year = metadata.year
             w_cookie = Prefs['w_cookie'] if Prefs['w_cookie'] != "" else ""
             w = watcha.watcha(keyword = media.title.replace('WATCHA  :  ','').strip(), year=None if tmp_year == None else int(tmp_year), media_type='movies' , cookie = w_cookie)
-            data = w.info['API_INFO']
+            try:data = w.info['API_INFO']
+            except: # 못찾음
+                w = watcha.watcha(keyword=media.title.replace('WATCHA  :  ', '').strip(),
+                                  year=None if tmp_year == None else int(tmp_year), media_type='movies', year_diff_allow=1,
+                                  cookie=w_cookie)
             try:metadata.title = data['title']
             except:pass
             try:metadata.year = data['year']
@@ -733,10 +738,12 @@ def updateDaumMovie(cate, media, metadata , lang):
             if not imdb_code : imdb_code = item['id']
             else : pass
             imdb_url = 'https://www.imdb.com/title/%s' % imdb_code
+
             root = HTML.ElementFromURL(imdb_url)
             try:imdb_rating = root.xpath('//*[@id="title-overview-widget"]/div[1]/div[2]/div/div[1]/div[1]/div[1]/strong/span')[0].text_content()
             except:imdb_rating = None
-            try:imdb_people = root.xpath('//*[@id="title-overview-widget"]/div[1]/div[2]/div/div[1]/div[1]/a/span')[0].text_content()
+            try:imdb_people = root.xpath('//*[@id="title-overview-widget"]/div[1]/div[2]/div/div[1]/div[1]/a/span')[0].text_content().replace(',','')
+                                         #//*[@id="title-overview-widget"]/div[1]/div[2]/div/div[1]/div[1]/a/span
             except:imdb_people = 0
 
             id = re.findall('(tt[0-9]+)', imdb_code)[0]
@@ -762,7 +769,13 @@ def updateDaumMovie(cate, media, metadata , lang):
             except Exception as e:
                 Log(e)
                 imdb_overview = ""
+            Log('IMDb rating Start')
+            Log(imdb_code)
+            Log(imdb_rating)
+            Log(imdb_people)
+            Log(Prefs['imdb_rating_people_numbers'])
             if imdb_rating and int(imdb_people.replace(',','').strip()) >= int(Prefs['imdb_rating_people_numbers']):
+                Log('IMDb rating condition start')
                 metadata.rating = float(imdb_rating)
                 metadata.rating_image = 'imdb://image.rating'
                 if Prefs['imdb_rating_text_and_collection'] != "":
