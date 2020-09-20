@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>com.plexapp.agents.k_movie</string>
+	<key>PlexAgentAttributionText</key>
+	<string>
+		&lt;a href=&quot;https://github.com/KoreaPlex/&quot;&gt;LINK&lt;/a&gt; : Thanks to so many people who are interested in modifying metadata
+
+	</string>
+	<key>PlexFrameworkVersion</key>
+	<string>2</string>
+	<key>PlexPluginClass</key>
+	<string>Agent</string>
+	<key>PlexPluginCodePolicy</key>
+	<string>Elevated</string>
+</dict>
+</plist>

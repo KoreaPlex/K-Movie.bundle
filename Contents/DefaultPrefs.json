@@ -1,0 +1,208 @@
+[
+	{
+		"id": "end_noti_filepath",
+		"label": "TV쇼 [종영] 표시할 파일의 위치. 이 위치 안에 있는 쇼가 종영하면 타이틀에 [종영]표시가 추가됨. 2개 이상일 경우 구분자는 ,. 한글이 포함되어 있으면 에러가 발생하는데 일단 한글을 뺴고 저장한 후 Plex Media Server/Plug-in Support/Preferences/com.plexapp.agents.sj_daum.xml 파일에 수동으로 넣어주세요.",
+		"type": "text",
+		"default": ""
+	},
+	{
+		"id": "include_time_info",
+		"label": "영화 재생 버전을 분리하여 추가.",
+		"type": "bool",
+		"default": "False"
+	},
+	{
+		"id": "max_episode_count",
+		"label": "쇼 메타 검색시 가져올 에피소드 수. 0이면 제한 없음.",
+		"type": "text",
+		"default": "300"
+	},
+	{
+		"id": "cookie",
+		"label": "HTTP Cookie",
+		"type": "text",
+		"default": "TIARA=gaXEIPluo-wWAFlwZN6l8gN3yzhkoo_piP.Kymhuy.6QBt4Q6.cRtxbKDaWpWajcyteRHzrlTVpJRxLjwLoMvyYLVi_7xJ1L"
+	},
+	{
+		"id": "max_num_posters",
+		"label": "Maximum Number of Posters",
+		"type": "enum",
+		"values": ["5", "10", "20"],
+		"default": "5"
+	},
+	{
+		"id": "max_num_arts",
+		"label": "Maximum Number of Arts",
+		"type": "enum",
+		"values": ["5", "10", "20"],
+		"default": "5"
+	},
+	{
+		"id": "server_url",
+		"label": "_____________________________________________________________________________________\nTrailer를 받아올 서버 위치(PLEX 서버 아님)",
+		"type": "text",
+		"default": ""
+	},
+	{
+		"id": "apikey",
+		"label": "apikey (트레일러 및 번역 등에 활용)",
+		"type": "text",
+		"default": ""
+	},
+	{
+		"id": "collection_black_keyword",
+		"label": "_____________________________________________________________________________________\n왓챠 컬렉션 차단 키워드. 쉼표로 구분 (,)",
+		"type": "text",
+		"default": "no_korean_directly,it_will_make_a_bug"
+	},
+	{
+		"id": "black_critic",
+		"label": "특정 평론가 차단 키워드. 쉼표(,) 로 구분",
+		"type": "text",
+		"default": "no_korean_directly,it_will_make_a_bug"
+	},
+	{
+		"id": "w_favorite_non_critics",
+		"label": "왓챠 평론가 아니더라도 추가할 코멘트 (유저 이름) 쉼표로 구분",
+		"type": "text",
+		"default": "Cinephile"
+	},
+	{
+		"id": "thresh_hold_point",
+		"label": "몇 점 이상이어야지 신선한 토마토로 선택되는지",
+		"type": "enum",
+		"values": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+		"default": "7"
+	},
+	{
+		"id": "w_cookie",
+		"label": "*고급 사용자용. 왓챠 쿠키.",
+		"type": "text",
+		"default": ""
+	},
+	{
+		"id": "collection_make_tmdb",
+		"label": "TMDB 시리즈 컬렉션 생성 여부",
+		"type": "bool",
+		"default": "true"
+	},
+	{
+		"id": "collection_make_watcha_by_another_users",
+		"label": "왓챠 컬렉션(다른 왓챠 유저들이 생성한 것들) 생성 여부",
+		"type": "bool",
+		"default": "true"
+	},
+	{
+		"id": "w_collection_by_flavor",
+		"label": "왓챠 컬렉션(개인 예상별점) 생성 여부",
+		"type": "bool",
+		"default": "true"
+	},
+	{
+		"id": "w_private_point_collection_location",
+		"label": "왓챠 예상 점수 컬렉션 위치 지정",
+		"type": "enum",
+		"values": ["제일 위", "제일 아래"],
+		"default": "제일 아래"
+	},
+	{
+		"id": "w_like",
+		"label": "특정 좋아요 수치 이상인 경우 무조건 컬렉션 추가",
+		"type": "text",
+		"default": "8000"
+	},
+	{
+		"id": "imdb_rating",
+		"label": "imdb 평점을 찾고 덮어씌운다. 찾지 못한다면 Daum 점수를 가져온다.",
+		"type": "bool",
+		"default": "true"
+	},
+	{
+		"id": "imdb_rating_people_numbers",
+		"label": "IMDb 점수를 매긴 사람이 이 숫자 이상을 넘지 않는 경우 받아오지 않는다.",
+		"type": "text",
+		"default": "200"
+	},
+	{
+		"id": "imdb_rating_text_and_collection",
+		"label": "imdb 특정 평점 범위마다 컬렉션을 형성해준다. 문법은 기본값 참조. 구분자는 쉼표. 블랭크일 경우 생성하지 않음. 앞에는 자동으로 도형 추가.",
+		"type": "text",
+		"default": "6.5~7.0[IMDb 6.5~7.0],7.1~7.9[IMDb 7.1~7.9],8.0~9.9[IMDB 8.0~]"
+	},
+	{
+		"id": "poster_prefer",
+		"label": "포스트 선호 순서. 앞에 것을 우선한다. 구분자는 쉼표. 찾지 못하면 무시한다.",
+		"type": "text",
+		"default": "daum,watcha,imdb,tmdb"
+	},
+	{
+		"id": "poster_save",
+		"label": "포스트 선호 순서대로 사진을 저장한다. 메타데이터 수정할 경우 다량의 포스터가 등재될 것임. 차지하는 용량이 클 수도 있음.",
+		"type": "bool",
+		"default": "true"
+	},
+	{
+		"id": "fallback_agent",
+		"label": "fallback. 매칭 실패시 어떤 에이전트로 넘길지",
+		"type": "enum",
+		"values": ["not fallback","imdb", "tmdb"],
+		"default": "not fallback"
+	},
+	{
+		"id": "trailer_location",
+		"label": "부가영상을 CDN에서 받아올지 프록시 서버에서 받아올지.",
+		"type": "enum",
+		"values": ["Proxy","CDN"],
+		"default": "Proxy"
+	},
+	{
+		"id": "sort_title_korean",
+		"label": "스크롤바 오른쪽에 자음 첫 글자로 배열 (Thanks to alphafactory.com)",
+		"type": "bool",
+		"default": "true"
+	},
+	{
+		"id": "alternative_story",
+		"label": "_____________________________________________________________________________________\n다음 영화에 스토리가 없는 경우 다른 사이트에서 찾아온다. 그 순서. (구분자는 쉼표)",
+		"type": "text",
+		"default": "tmdb,watcha,naver,imdb"
+	},
+	{
+		"id": "no_daum_get_tmdb",
+		"label": "다음 영화에서 찾을 수 없으면 TMDb 에서 찾아서 번역한다.",
+		"type": "bool",
+		"default": "true"
+	},
+	{
+		"id": "if_no_trailer_in_daum",
+		"label": "다음에 부가영상이 없거나 준비되지 않은 경우 기본 PlexAgent에서 부가영상을 받아온다. 다음 조건 중 고르시오. No는 아예 받아오지 않고 When Nothing in daum은 다음에 부가영상이 없는 경우에만 받아오고 Always는 다음에 부가영상이 있건 없건 상관 없이 받아온다. (Plexpass 필요)",
+		"type": "enum",
+		"values": ['No' , 'When Nothing in daum' , 'Always'],
+		"default": "Always"
+	},
+	{
+		"id": "only_trailers",
+		"label": "Plex 기본 에이전트를 이용해 부가 영상 받아올 때, 예고편만 받아오기",
+		"type": "bool",
+		"default": "false"
+	},
+		{
+		"id": "plex_agent_review_add",
+		"label": "Plex 기본 에이전트에서 제공하는 review를 넣기",
+		"type": "bool",
+		"default": "true"
+	},
+		{
+		"id": "plex_agent_review_translate",
+		"label": "Plex 기본 에이전트에서 제공하는 review를 번역하기",
+		"type": "bool",
+		"default": "true"
+	},
+	{
+		"id": "data_backup",
+		"label": "서버에 매칭 ID 백업 및 받아오기, 파일명을 해당 메타데이터 ID에 매칭한 정보를 서버에 저장함(Only backup). 나중에 복원하고 싶을 때는 Only download로 켜놓으면 기존에 매칭시켰던 아이디로 복구\nDownload_First_After_Searching 이 옵션은 서버에 백업한 DB에서 우선적으로 찾고 없으면 에이전트에 따라서 찾는다.",
+		"type": "enum",
+		"values": ['No' , 'Only_backup' , 'Only_download' , 'Download_First_After_Searching'],
+		"default": "No"
+	}
+]
