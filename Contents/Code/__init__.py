@@ -170,7 +170,7 @@ def update_movie_by_web(metadata, metadata_id):
           metadata.originally_available_at = None
         match = re.compile(ur'(?P<duration>\d{2,})분[\s,]?(?P<rate>.*?)$').match(tmp)
         if match:
-          #metadata.duration = int(match.group('duration').strip())*60
+          metadata.duration = int(match.group('duration').strip())*60
           metadata.content_rating = String.DecodeHTMLEntities(String.StripTags(match.group('rate').strip()).strip())
       except Exception as e:
         Log('Exception:%s', e)
@@ -323,7 +323,8 @@ def updateDaumMovie(cate, media, metadata , lang):
             for index, tmdb_title_for_search_part in enumerate(tmdb_title_for_search):
                 tmdb_json_en = tmdb_json_ko = None
                 try:
-                    j, c = tmdb.tmdb().search(name=tmdb_title_for_search_part, year=tmdb_year)
+                    Log('metadata.duration : %s' % metadata.duration)
+                    j, c = tmdb.tmdb().search(name=tmdb_title_for_search_part, year=tmdb_year , duration=int(metadata.duration) / 60)
                 except:
                     continue
                 tmdb_json_en = j
@@ -1137,12 +1138,12 @@ def statistics_search(results, media, lang, manual=False):
     dirname = os.path.split(path)[1]
     filename = os.path.split(fullpath)[1]
     os_hash = None
-    (proxy, token) = opensubtitlesProxy()
+    #(proxy, token) = opensubtitlesProxy()
     for i in media.items:
         for part in i.parts:
             os_hash = part.openSubtitleHash
-            test = subtitleResponse = proxy.SearchSubtitles(token,[{'sublanguageid':'eng', 'moviehash':part.openSubtitleHash, 'moviebytesize':str(part.size)}])
-            Log('test : %s'  % test)
+            #test = subtitleResponse = proxy.SearchSubtitles(token,[{'sublanguageid':'eng', 'moviehash':part.openSubtitleHash, 'moviebytesize':str(part.size)}])
+            #Log('test : %s'  % test)
     tmp = dict(
                      filename=filename, filename_hash=word_hash(filename), os_hash=os_hash,
                      dirname=dirname, dirname_hash=word_hash(dirname),
