@@ -1059,6 +1059,8 @@ def searchMovieTMDb(results, media, lang, manual=False):
                 tmp_year = int(item['release_date'][:4])
             except ValueError:
                 tmp_year = None
+            except KeyError:
+                tmp_year = None
             results.Append(MetadataSearchResult(id='tmdb_'+str(item['id']), name='TMDb  :  '+item['title'], year=tmp_year, score=(85 - (index * 5)), lang=lang))
     return tmdb_json
 
