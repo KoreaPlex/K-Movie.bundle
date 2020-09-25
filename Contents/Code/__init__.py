@@ -1226,9 +1226,7 @@ class K_MovieAgent(Agent.Movies):
         result = searchMovieTMDb(results, media, lang , manual=manual)
         Log('TMDb RESULT : %s' % result)
         self.manual = self.title = self.year = self.filename = self.media_id =False
-        if not results:
-            Log("results is None")
-            watcha.watcha_find(results, media, lang, manual=manual)
+        watcha.watcha_find(results, media, lang, manual=manual)
         if manual:
             self.manual = True
             part = media.items[0].parts[0]
