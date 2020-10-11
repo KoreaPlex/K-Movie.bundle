@@ -4,7 +4,15 @@ LFW_Movie 포크
 
 BETA
 
-2020-09-20 21:37 핫픽스
+## ChangeLog
+
+### 2020-09-20 21:37 
+
+버그 핫픽스
+
+### 2020-10-11
+
+백업 메타데이터 체크부분을 metadata_title -> metadata_id로 변경.
 
 # K-Movie.bundle
 
