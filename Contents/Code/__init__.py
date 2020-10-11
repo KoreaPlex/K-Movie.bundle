@@ -1199,7 +1199,7 @@ class K_MovieAgent(Agent.Movies):
                 tmp= []
             if 'result' in tmp:
                 tmp = tmp['result']
-                if tmp['metadata_title'] != "None":
+                if tmp['metadata_id'] != "None":
                     Log(tmp)
                     results.Append(MetadataSearchResult(id=tmp['metadata_id'], name=tmp['metadata_title'], year=tmp['metadata_year'], score=100, lang=lang))
             if Prefs['data_backup'] == "Only_download":
